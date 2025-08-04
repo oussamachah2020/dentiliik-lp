@@ -1,8 +1,16 @@
-"use client"
-
-import { Stethoscope, Mail, Phone, MapPin, Twitter, Linkedin, Facebook, Instagram, ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import {
+  Stethoscope,
+  Mail,
+  Phone,
+  MapPin,
+  Twitter,
+  Linkedin,
+  Facebook,
+  Instagram,
+  ArrowRight,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export default function CleanFooter() {
   return (

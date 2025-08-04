@@ -1,33 +1,12 @@
-"use client"
-
-import { useState, useEffect } from "react"
-import Header from "@/components/Header"
-import Hero from "@/components/Hero"
-import Features from "@/components/Features"
-import Testimonials from "@/components/Testimonials"
-import Pricing from "@/components/Pricing"
-import CTA from "@/components/CTA"
-import Footer from "@/components/Footer"
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import Features from "@/components/Features";
+import Testimonials from "@/components/Testimonials";
+import Pricing from "@/components/Pricing";
+import CTA from "@/components/CTA";
+import Footer from "@/components/Footer";
 
 export default function DentillikLanding() {
-  const [scrollY, setScrollY] = useState(0)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    window.addEventListener("mousemove", handleMouseMove)
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-      window.removeEventListener("mousemove", handleMouseMove)
-    }
-  }, [])
-
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Floating Background Elements */}
@@ -35,8 +14,6 @@ export default function DentillikLanding() {
         <div
           className="absolute w-96 h-96 bg-gradient-to-r from-violet-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse"
           style={{
-            left: mousePosition.x / 10,
-            top: mousePosition.y / 10,
             transform: `translate(-50%, -50%)`,
           }}
         />
@@ -58,5 +35,5 @@ export default function DentillikLanding() {
       <CTA />
       <Footer />
     </div>
-  )
+  );
 }
