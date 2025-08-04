@@ -27,7 +27,7 @@ export default function DentillikLanding() {
         />
       </div>
 
-      <Header scrollY={scrollY} />
+      <Header />
       <Hero />
       <Features />
       <Testimonials />

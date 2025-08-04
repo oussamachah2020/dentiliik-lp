@@ -1,15 +1,24 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react";
 import { Menu, X, Stethoscope } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-interface HeaderProps {
-  scrollY: number
-}
+export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
-export default function Header({ scrollY }: HeaderProps) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <nav
@@ -19,7 +28,7 @@ export default function Header({ scrollY }: HeaderProps) {
           : "bg-transparent"
       }`}
     >
-      <div className=" px-4 sm:px-6 lg:px-8">
+      <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center space-x-3 group">
             <div className="w-10 h-10 bg-gradient-to-r from-violet-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
@@ -84,18 +93,21 @@ export default function Header({ scrollY }: HeaderProps) {
             <a
               href="#features"
               className="block text-gray-600 hover:text-violet-600 transition-colors duration-200 font-medium"
+              onClick={() => setIsMenuOpen(false)}
             >
               Features
             </a>
             <a
               href="#testimonials"
               className="block text-gray-600 hover:text-violet-600 transition-colors duration-200 font-medium"
+              onClick={() => setIsMenuOpen(false)}
             >
               Testimonials
             </a>
             <a
               href="#pricing"
               className="block text-gray-600 hover:text-violet-600 transition-colors duration-200 font-medium"
+              onClick={() => setIsMenuOpen(false)}
             >
               Pricing
             </a>
