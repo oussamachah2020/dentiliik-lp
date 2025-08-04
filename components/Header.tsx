@@ -13,11 +13,13 @@ export default function Header({ scrollY }: HeaderProps) {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        scrollY > 50 ? "bg-white/95 backdrop-blur-2xl shadow-2xl border-b border-violet-100" : "bg-transparent"
+      className={`fixed top-0 w-full border-b border-purple-500 z-50 transition-all duration-500 ${
+        scrollY > 50
+          ? "bg-white/95 backdrop-blur-2xl shadow-xl border-b border-violet-100"
+          : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className=" px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center space-x-3 group">
             <div className="w-10 h-10 bg-gradient-to-r from-violet-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
@@ -66,7 +68,11 @@ export default function Header({ scrollY }: HeaderProps) {
             className="md:hidden hover:scale-110 transition-all duration-300"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </Button>
         </div>
       </div>
@@ -108,5 +114,5 @@ export default function Header({ scrollY }: HeaderProps) {
         </div>
       )}
     </nav>
-  )
+  );
 }
