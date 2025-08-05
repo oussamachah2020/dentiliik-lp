@@ -21,7 +21,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative bg-white pt-14 pb-20 min-h-screen flex items-center overflow-hidden">
+    <section className="relative bg-white pt-24 lg:pt-16  pb-20 min-h-screen flex items-center overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-5">
         <svg
@@ -141,9 +141,8 @@ export default function Hero() {
               ))}
             </div>
 
-            {/* Stats */}
             <div
-              className={`grid grid-cols-4  transition-all duration-700 delay-750 ease-out ${
+              className={`grid grid-cols-2 gap-3 lg:grid-cols-3 xl:grid-cols-4  transition-all duration-700 delay-750 ease-out ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-4"

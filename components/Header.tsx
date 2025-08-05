@@ -22,19 +22,19 @@ export default function Header() {
 
   return (
     <nav
-      className={`fixed top-0 w-full border-b border-purple-500 z-50 transition-all duration-500 ${
+      className={`fixed top-0 w-full border-b border-purple-500 z-50 h-16 transition-all duration-500 ${
         scrollY > 50
           ? "bg-white/95 backdrop-blur-2xl shadow-xl border-b border-violet-100"
           : "bg-transparent"
       }`}
     >
       <div className="px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <div className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 bg-gradient-to-r from-violet-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
-              <Stethoscope className="w-6 h-6 text-white" />
+        <div className="flex items-center justify-between h-16">
+          <div className="flex items-center space-x-2 group">
+            <div className="w-8 h-8 bg-gradient-to-r from-violet-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+              <Stethoscope className="w-4 h-4 text-white" />
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="text-xl font-bold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
               Dentillik
             </span>
           </div>

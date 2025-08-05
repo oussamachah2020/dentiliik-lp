@@ -9,7 +9,6 @@ import Footer from "@/components/Footer";
 export default function DentillikLanding() {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
-      {/* Floating Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div
           className="absolute w-96 h-96 bg-gradient-to-r from-violet-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse"
