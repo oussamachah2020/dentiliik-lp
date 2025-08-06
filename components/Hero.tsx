@@ -1,6 +1,15 @@
-"use client"
+"use client";
 
-import { ArrowRight, Check, Play, Sparkles, Star, Zap, Users, Calendar } from "lucide-react"
+import {
+  ArrowRight,
+  Check,
+  Play,
+  Sparkles,
+  Star,
+  Zap,
+  Users,
+  Calendar,
+} from "lucide-react";
 import { useState, useEffect } from "react";
 import AppScreen from "@/public/dashboard.png";
 import Image from "next/image";
@@ -21,9 +30,9 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative bg-white pt-24 lg:pt-16  pb-20 min-h-screen flex items-center overflow-hidden">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-5">
+    <section className="relative bg-white pt-24 lg:pt-16 pb-20 min-h-screen flex items-center overflow-hidden">
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none">
         <svg
           className="absolute inset-0 w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +56,15 @@ export default function Hero() {
         </svg>
       </div>
 
-      <div className="relative  px-4 sm:px-6 lg:px-8 w-full">
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-200 via-pink-200 to-blue-200 opacity-40 animate-gradient" />
+
+      {/* Floating light blobs */}
+      <div className="absolute -top-32 -left-32 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
+      <div className="absolute top-1/2 -right-32 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000" />
+      <div className="absolute -bottom-32 left-1/2 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000" />
+
+      <div className="relative px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <div className="text-left">
@@ -59,7 +76,7 @@ export default function Hero() {
                   : "opacity-0 translate-y-4"
               }`}
             >
-              <div className="inline-flex items-center bg-white text-violet-700 px-4 py-2 rounded-full text-sm font-medium  border border-violet-500">
+              <div className="inline-flex items-center bg-white text-violet-700 px-4 py-2 rounded-full text-sm font-medium border border-violet-500">
                 <Sparkles className="w-4 h-4 mr-2" />
                 <span className="text-violet-600 font-medium">
                   Now with AI-powered scheduling
@@ -142,7 +159,7 @@ export default function Hero() {
             </div>
 
             <div
-              className={`grid grid-cols-2 gap-3 lg:grid-cols-3 xl:grid-cols-4  transition-all duration-700 delay-750 ease-out ${
+              className={`grid grid-cols-2 gap-3 lg:grid-cols-3 xl:grid-cols-4 transition-all duration-700 delay-750 ease-out ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-4"
@@ -174,7 +191,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right side - App Image Container */}
+          {/* Right side - App Image */}
           <div
             className={`relative transition-all duration-700 delay-300 ease-out ${
               isVisible
@@ -182,18 +199,58 @@ export default function Hero() {
                 : "opacity-0 translate-y-8"
             }`}
           >
-            <div className="relative">
-              <Image
-                src={AppScreen.src}
-                alt="dentillik-dashboard"
-                width={100}
-                height={100}
-                className="w-full h-auto shadow-md"
-              />
-            </div>
+            <Image
+              src={AppScreen.src}
+              alt="dentillik-dashboard"
+              width={100}
+              height={100}
+              className="w-full h-auto shadow-md"
+            />
           </div>
         </div>
       </div>
+
+      {/* Tailwind animations */}
+      <style jsx global>{`
+        @keyframes blob {
+          0% {
+            transform: translate(0px, 0px) scale(1);
+          }
+          33% {
+            transform: translate(30px, -50px) scale(1.1);
+          }
+          66% {
+            transform: translate(-20px, 20px) scale(0.9);
+          }
+          100% {
+            transform: translate(0px, 0px) scale(1);
+          }
+        }
+        .animate-blob {
+          animation: blob 8s infinite;
+        }
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+        @keyframes gradient {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+        .animate-gradient {
+          background-size: 200% 200%;
+          animation: gradient 15s ease infinite;
+        }
+      `}</style>
     </section>
   );
 }
