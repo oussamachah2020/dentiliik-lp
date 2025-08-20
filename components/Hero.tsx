@@ -30,7 +30,7 @@ export default function Hero() {
   useEffect(() => {
     setIsVisible(true);
 
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: { clientX: any; clientY: any }) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
@@ -61,14 +61,14 @@ export default function Hero() {
           <div className="lg:col-span-6 text-left">
             {/* Premium badge */}
             <div
-              className={`mb-8 transition-all duration-1000 ease-out ${
+              className={`mb-6 transition-all duration-1000 ease-out ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
               }`}
             >
-              <div className="inline-flex items-center bg-gradient-to-r from-violet-600 to-purple-600 text-white px-6 py-3 rounded-full text-sm font-semibold shadow-lg hover:shadow-xl transition-shadow duration-300 group cursor-pointer">
-                <Sparkles className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
+              <div className="inline-flex items-center bg-gradient-to-r from-violet-600 to-purple-600 text-white px-4 py-2 rounded-full text-xs font-semibold shadow-lg hover:shadow-xl transition-shadow duration-300 group cursor-pointer">
+                <Sparkles className="w-3 h-3 mr-2 group-hover:rotate-12 transition-transform duration-300" />
                 <span>AI-Powered Dental Management</span>
                 <div className="w-2 h-2 bg-green-400 rounded-full ml-2 animate-pulse" />
               </div>
@@ -76,7 +76,7 @@ export default function Hero() {
 
             {/* Hero headline */}
             <h1
-              className={`text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 mb-6 leading-tight transition-all duration-1000 delay-200 ease-out ${
+              className={`text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 mb-4 leading-tight transition-all duration-1000 delay-200 ease-out ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
@@ -93,7 +93,7 @@ export default function Hero() {
 
             {/* Subtitle */}
             <p
-              className={`text-xl md:text-2xl text-slate-600 mb-10 max-w-2xl leading-relaxed transition-all duration-1000 delay-400 ease-out ${
+              className={`text-lg md:text-xl text-slate-600 mb-8 max-w-2xl leading-relaxed transition-all duration-1000 delay-400 ease-out ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
@@ -120,29 +120,29 @@ export default function Hero() {
 
             {/* CTA Section */}
             <div
-              className={`mb-12 transition-all duration-1000 delay-600 ease-out ${
+              className={`mb-10 transition-all duration-1000 delay-600 ease-out ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
               }`}
             >
-              <div className="flex flex-col sm:flex-row items-start gap-4 mb-8">
-                <button className="group relative overflow-hidden bg-gradient-to-r from-violet-600 to-purple-600 text-white text-lg font-semibold px-8 h-12 rounded-xl hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 transform hover:-translate-y-1">
+              <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">
+                <button className="group relative overflow-hidden bg-gradient-to-r from-violet-600 to-purple-600 text-white text-base font-semibold px-6 h-11 rounded-xl hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 transform hover:-translate-y-1">
                   <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
                   <div className="relative flex items-center">
                     Start Free Trial
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
                 </button>
 
-                <button className="group flex items-center text-slate-700 hover:text-violet-600 text-lg font-semibold px-8 h-12 rounded-xl border-2 border-slate-200 hover:border-violet-200 bg-white hover:bg-violet-50 transition-all duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-lg">
-                  <Play className="mr-3 w-5 h-5 text-violet-600" />
+                <button className="group flex items-center text-slate-700 hover:text-violet-600 text-base font-semibold px-6 h-11 rounded-xl border-2 border-slate-200 hover:border-violet-200 bg-white hover:bg-violet-50 transition-all duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-lg">
+                  <Play className="mr-3 w-4 h-4 text-violet-600" />
                   Watch Demo
                 </button>
               </div>
 
               {/* Trust indicators */}
-              <div className="flex flex-wrap items-center gap-8 text-sm text-slate-500">
+              <div className="flex flex-wrap items-center gap-6 text-xs text-slate-500">
                 {[
                   "✨ No credit card required",
                   "⚡ Setup in 5 minutes",
@@ -157,7 +157,7 @@ export default function Hero() {
 
             {/* Stats Grid */}
             <div
-              className={`grid grid-cols-2 lg:grid-cols-4 gap-6 transition-all duration-1000 delay-800 ease-out ${
+              className={`grid grid-cols-2 lg:grid-cols-4 gap-4 transition-all duration-1000 delay-800 ease-out ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
@@ -170,16 +170,16 @@ export default function Hero() {
                     key={index}
                     className="group hover:scale-105 transition-all duration-300 cursor-pointer"
                   >
-                    <div className="bg-white p-4 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100 hover:border-violet-100">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-12 h-12 bg-gradient-to-br from-violet-100 to-purple-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                          <Icon className="w-6 h-6 text-violet-600" />
+                    <div className="bg-white p-3 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100 hover:border-violet-100">
+                      <div className="flex items-center space-x-2">
+                        <div className="w-10 h-10 bg-gradient-to-br from-violet-100 to-purple-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <Icon className="w-5 h-5 text-violet-600" />
                         </div>
                         <div>
-                          <div className="text-2xl font-bold text-slate-900">
+                          <div className="text-xl font-bold text-slate-900">
                             {stat.number}
                           </div>
-                          <div className="text-slate-600 text-sm font-medium">
+                          <div className="text-slate-600 text-xs font-medium">
                             {stat.label}
                           </div>
                         </div>
@@ -217,7 +217,7 @@ export default function Hero() {
                     className="w-full h-auto rounded-2xl"
                   />
                   {/* Overlay elements */}
-                  <div className="absolute top-8 right-8 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold flex items-center shadow-lg animate-pulse">
+                  <div className="absolute top-8 right-8 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center shadow-lg animate-pulse">
                     <div className="w-2 h-2 bg-white rounded-full mr-2" />
                     Live
                   </div>
